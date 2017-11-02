@@ -6,6 +6,6 @@ package oop.exception;
 public class NoParametersException extends RuntimeException{
 
     public NoParametersException() {
-
+        System.out.println("There are no parameters for voucher search");
     }
 }

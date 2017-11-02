@@ -13,6 +13,11 @@ public class MySqlHandler {
     private static Statement statement;
     private static List<List<String>> voucher;
 
+    private static final int DAYS_COLUMN = 3;
+    private static final int TRANSFER_COLUMN = 4;
+    private static final int FOOD_COLUMN = 5;
+
+
     public static void createMySQLdb() {
 
         try {
@@ -43,10 +48,9 @@ public class MySqlHandler {
             int i = 0;
             while (resultSet.next()) {
                 voucher.add(new ArrayList<String>());
-                voucher.get(i).add(resultSet.getString(2));
-                voucher.get(i).add(resultSet.getString(3));
-                voucher.get(i).add(resultSet.getString(4));
-                voucher.get(i).add(resultSet.getString(5));
+                voucher.get(i).add(resultSet.getString(DAYS_COLUMN));
+                voucher.get(i).add(resultSet.getString(TRANSFER_COLUMN));
+                voucher.get(i).add(resultSet.getString(FOOD_COLUMN));
                 i++;
             }
         } catch (SQLException e) {
